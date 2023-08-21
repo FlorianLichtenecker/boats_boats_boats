@@ -1,11 +1,33 @@
 class BoatsController < ApplicationController
-  before_action :set_boat, only: [:show]
+  before_action :set_boat, only: %i[show edit destroy]
 
   def index
     @boats = Boat.all
   end
 
   def show
+  end
+
+  def new
+    @boat = Boat.new
+  end
+
+  def create
+    @boat = Boat.new(boat_params)
+    @boat.save
+    redirect_to boat_path(@boat)
+  end
+
+  def edit
+
+  end
+
+  def update
+
+  end
+
+  def destroy
+
   end
 
   private

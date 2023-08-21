@@ -1,0 +1,15 @@
+<h1>New Boat</h1>
+
+<%= simple_form_for @boat do |f| %>
+  <%= f.input :name, label: 'Name' %>
+  <%= f.input :length, label: 'Length' %>
+  <%= f.input :width, label: 'Width' %>
+  <%= f.input :height, label: 'Height' %>
+  <%= f.input :poster_url, label: 'Poster URL' %>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', boats_path %>
