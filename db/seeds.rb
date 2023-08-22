@@ -20,9 +20,16 @@ Boat.destroy_all
       width: Faker::Number.decimal(l_digits: 2, r_digits: 2),
       height: Faker::Number.decimal(l_digits: 2, r_digits: 2),
       user: user,
-      poster_url: "https://source.unsplash.com/random?motorboat" # Fetching random motorboat image from Unsplash
     )
   end
 end
 
 puts "Seeded #{User.count} users and #{Boat.count} boats."
+
+User.create!(
+  email: "123@123.com",
+  password: "123123",
+  encrypted_password: "123123"
+)
+
+puts "Log-in user (123123@123.com, 123123) created."
