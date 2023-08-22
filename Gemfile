@@ -82,7 +82,7 @@ group :test do
 end
 
 gem 'cloudinary'
-gem 'activestorage-cloudinary-service'
+# gem 'activestorage-cloudinary-service'
 
 gem 'image_processing'
 gem 'mini_magick'

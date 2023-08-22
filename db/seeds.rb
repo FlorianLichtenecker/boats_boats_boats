@@ -20,7 +20,6 @@ Boat.destroy_all
       width: Faker::Number.decimal(l_digits: 2, r_digits: 2),
       height: Faker::Number.decimal(l_digits: 2, r_digits: 2),
       user: user,
-      poster_url: "https://source.unsplash.com/random?motorboat" # Fetching random motorboat image from Unsplash
     )
   end
 end
