@@ -1,7 +1,9 @@
 <%= @boat.name  %>
+<%= @boat.images.last.key %>
+
 <% if @boat.images.attached? %>
   <% @boat.images.each do |image| %>
-    <%= image_tag image %>
+    <%= cl_image_tag image.key %>
   <% end %>
 <% else %>
   <p>No images attached.</p>
