@@ -80,3 +80,9 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem 'cloudinary'
+gem 'activestorage-cloudinary-service'
+
+gem 'image_processing'
+gem 'mini_magick'
