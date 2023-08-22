@@ -19,15 +19,16 @@ class BoatsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
-
+    @boat.update(boat_params)
+    redirect_to boat_path(@boat), notice: 'Listing was successfully updated.'
   end
 
   def destroy
-
+    @boat.destroy
+    redirect_to boats_path, notice: 'Listing was successfully destroyed.'
   end
 
   private
