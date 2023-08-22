@@ -1,8 +1,7 @@
-// Specific CSS for your home-page
 .banner {
   background-size: cover;
-  background-position: center;
-  padding: 0;
+  background-position: 50% 40%;; //center
+  padding: 100px;
   margin: 0;
   height: 100vh;
 }
@@ -32,3 +31,7 @@
 .btn-flat:hover {
   background: #4D04C4;
   color: white;}
+
+  .container {
+  padding-top: 200px;
+  }
