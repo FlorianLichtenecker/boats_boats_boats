@@ -1,2 +1,8 @@
 <%= @boat.name  %>
-<%= image_tag @boat.poster_url, alt: "boat picture" %>
+<% if @boat.images.attached? %>
+  <% @boat.images.each do |image| %>
+    <%= image_tag image %>
+  <% end %>
+<% else %>
+  <p>No images attached.</p>
+<% end %>
