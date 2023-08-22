@@ -8,8 +8,7 @@ Boat.destroy_all
   # Create a user
   user = User.create!(
     email: Faker::Internet.unique.email,
-    password: 'password123', # For simplicity, using a common password for all seeded users
-    encrypted_password: 'password123' # Added comma here
+    password: 'password123' # For simplicity, using a common password for all seeded users
   )
 
   # Create 2 boats for the user
@@ -19,7 +18,7 @@ Boat.destroy_all
       length: Faker::Number.decimal(l_digits: 2, r_digits: 2),
       width: Faker::Number.decimal(l_digits: 2, r_digits: 2),
       height: Faker::Number.decimal(l_digits: 2, r_digits: 2),
-      user: user,
+      user: user
     )
   end
 end
@@ -28,8 +27,7 @@ puts "Seeded #{User.count} users and #{Boat.count} boats."
 
 User.create!(
   email: "123@123.com",
-  password: "123123",
-  encrypted_password: "123123"
+  password: "123123"
 )
 
 puts "Log-in user (123123@123.com, 123123) created."
