@@ -1,9 +1,11 @@
 <%= render "shared/navbar" %>
 
-<div class="banner" style="background-image: url(https://images.pexels.com/photos/6074859/pexels-photo-6074859.jpeg);">
+<div class="banner" style="background-image: url(<%= asset_path("pexels-pirateship.jpg") %>);">
   <div class="container">
     <h1>Boats ! Boats ! Boats ! </h1>
     <p>Select your dream boat from our large collection. <br> Connect to +2500 boats for your every needs</p>
     <a class="btn btn-flat" href="#">Register</a>
   </div>
 </div>
+
+<%= render "shared/footer" %>
