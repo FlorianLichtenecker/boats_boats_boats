@@ -1,0 +1,4 @@
+<%= simple_form_for @booking do |f| %>
+  <%= f.input :date_range, label: 'Date Range', input_html: { data: { controller: "datepicker" } } %>
+  <%= f.button :submit %>
+<% end %>
