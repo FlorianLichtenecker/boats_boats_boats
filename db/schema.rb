@@ -53,6 +53,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_22_100833) do
     t.index ["user_id"], name: "index_boats_on_user_id"
   end
 
+  create_table "booking_requests", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "boat_id", null: false
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["boat_id"], name: "index_booking_requests_on_boat_id"
+    t.index ["user_id"], name: "index_booking_requests_on_user_id"
+  end
+
   create_table "bookings", force: :cascade do |t|
     t.date "start_date"
     t.date "end_date"
@@ -80,6 +90,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_22_100833) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "boats", "users"
+  add_foreign_key "booking_requests", "boats"
+  add_foreign_key "booking_requests", "users"
   add_foreign_key "bookings", "boats"
   add_foreign_key "bookings", "users"
 end
