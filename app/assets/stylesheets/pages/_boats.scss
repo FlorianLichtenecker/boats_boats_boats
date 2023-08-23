@@ -3,3 +3,61 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
 }
+
+.boat-details {
+  padding: 20px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.boat-images {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding-right: 35px;
+
+  .boat-image {
+    max-width: 55%;
+    height: auto;
+    border-radius: 7px;
+  }
+
+  .booking-card {
+    max-width: 40%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    background-color: #f7f7f7;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    margin-right: 75px;
+  }
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-color: #2980b9;
+}
+
+
+.boat-description {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.boat-bookings {
+  font-size: 16px;
+}

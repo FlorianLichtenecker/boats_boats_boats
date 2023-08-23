@@ -1,9 +1,35 @@
-<%= @boat.name  %>
+<div class="boat-details">
+  <h1><%= @boat.name %></h1>
 
-<% if @boat.images.attached? %>
-  <% @boat.images.each do |image| %>
-    <%= cl_image_tag image.key %>
+  <% if @boat.images.attached? %>
+    <div class="boat-images">
+      <% @boat.images.each do |image| %>
+        <%= cl_image_tag image.key, class: "boat-image" %>
+      <% end %>
+
+  <% else %>
+    <p>No images attached.</p>
   <% end %>
-<% else %>
-  <p>No images attached.</p>
-<% end %>
+
+<div class="booking-card">
+      <h3>Book this Boat!</h3>
+      <h4>Price</h4>
+      <h4>Calendar</h4>
+      <p class="button">Book</p>
+</div>
+</div>
+  <div class="boat-description">
+    <h2>Specs</h2>
+    <p>
+      Length: <%= @boat.length %> meters<br>
+      Width: <%= @boat.width %> meters<br>
+      Height: <%= @boat.height %> meters
+    </p>
+  </div>
+
+   <% if @boat.user == current_user %>
+    <div class="boat-bookings">
+      <h2>Bookings</h2>
+    </div>
+  <% end %>
+</div>
