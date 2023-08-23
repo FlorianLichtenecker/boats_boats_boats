@@ -14,15 +14,3 @@
 <% end %>
 
 <h2>Your Booking Requests:</h2>
-<% if @booking_requests.any? %>
-  <ul>
-    <% @booking_requests.each do |booking_request| %>
-      <li>
-        <%= link_to booking_request.id, booking_request_path(booking_request) %>
-        - Status: <%= booking_request.status %>
-      </li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>You have no booking requests.</p>
-<% end %>
