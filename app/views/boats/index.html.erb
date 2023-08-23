@@ -10,7 +10,7 @@
                 <%= cl_image_tag(boat.images.first.key, width: 300, height: 200, crop: :fill, class: 'card-img-top') %>
               <% end %>
               <div class="card-body">
-                <h5 class="card-title"><%= boat.name %></h5>
+                <h5 class="card-title"><%= link_to boat.name, boat_path(boat) %></h5>
               </div>
             </div>
           </div>

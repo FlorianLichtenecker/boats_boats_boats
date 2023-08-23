@@ -11,3 +11,33 @@
 @import "components/index";
 @import "pages/index";
 @import "components/footer";
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-wrapper {
+  flex: 1;
+}
+
+.footer {
+  background-color: #f8f9fa; /* light gray background for visibility */
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-links a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #333; /* or any desired color */
+}
+
+.footer-copyright {
+  margin-top: 10px;
+}
