@@ -61,3 +61,33 @@
 .boat-bookings {
   font-size: 16px;
 }
+
+.star-rating {
+  display: inline-block;
+}
+
+.star-label {
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.star-icon {
+  font-size: 24px;
+  color: #ddd;
+}
+
+.star-label.active .star-icon {
+  color: #000;
+}
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
