@@ -8,6 +8,7 @@ class BoatsController < ApplicationController
   def show
     @reviews = Review.where(boat_id: @boat.id)
     @review = Review.new
+    @booking = Booking.new()
   end
 
   def new

@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     resources :reviews, except: %i[index show destroy]
     resources :bookings, only: %i[create]
     resources :reviews, only: %i[create update]
+  end
   get '/dashboard', to: 'users#dashboard', as: :user_dashboard
 end
