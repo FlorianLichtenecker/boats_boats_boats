@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :boats do
     resources :reviews, except: %i[index show destroy]
   end
+  get '/dashboard', to: 'users#dashboard', as: :user_dashboard
 end
