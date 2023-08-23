@@ -6,7 +6,8 @@ class BoatsController < ApplicationController
   end
 
   def show
-    @boat = Boat.find(params[:id])
+    @reviews = Review.where(boat_id: @boat.id)
+    @review = Review.new
   end
 
   def new
