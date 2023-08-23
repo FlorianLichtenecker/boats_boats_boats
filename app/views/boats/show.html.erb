@@ -1,5 +1,4 @@
 <%= @boat.name  %>
-<%= @boat.images.last.key %>
 
 <% if @boat.images.attached? %>
   <% @boat.images.each do |image| %>
@@ -7,4 +6,18 @@
   <% end %>
 <% else %>
   <p>No images attached.</p>
+<% end %>
+
+<h2>Booking Requests:</h2>
+<% if @booking_requests.any? %>
+  <ul>
+    <% @booking_requests.each do |booking_request| %>
+      <li>
+        Requested by: <%= booking_request.user.email %>
+        Status: <%= booking_request.status %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No booking requests for this boat.</p>
 <% end %>
