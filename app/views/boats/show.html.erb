@@ -13,9 +13,12 @@
 
 <div class="booking-card">
       <h3>Book this Boat!</h3>
-      <h4>Price</h4>
-      <h4>Calendar</h4>
-      <p class="button">Book</p>
+      <%= render "bookings/calendar"%>
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>">
+          <%= message %>
+        </div>
+      <% end %>
 </div>
 </div>
   <div class="boat-description">
