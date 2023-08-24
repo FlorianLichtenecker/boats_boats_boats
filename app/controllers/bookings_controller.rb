@@ -14,6 +14,18 @@ class BookingsController < ApplicationController
     end
   end
 
+  def accept
+    booking = Booking.find(params[:id])
+    booking.update(status: 'accepted')
+    redirect_to user_dashboard_path
+  end
+
+  def reject
+    booking = Booking.find(params[:id])
+    booking.update(status: 'rejected')
+    redirect_to user_dashboard_path
+  end
+
   private
 
   def booking_params

@@ -37,7 +37,7 @@
 
     <div class="dashboard-header-container">
       <h2 class="dashboard-header">Your Accepted Bookings:</h2>
-      <%= link_to "Open Requests (#{@open_requests_count})", "#", class: "open-requests-btn" %>
+      <%= link_to "Open Requests (#{@open_requests_count})", booking_requests_path, class: "open-requests-btn" %>
     </div>
     <% @bookings.select { |booking| booking.status == "accepted" }.each do |booking| %>
       <div class="booking-card">

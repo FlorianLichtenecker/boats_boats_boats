@@ -7,4 +7,7 @@ Rails.application.routes.draw do
     resources :reviews, only: %i[create update]
   end
   get '/dashboard', to: 'users#dashboard', as: :user_dashboard
+  get '/booking_requests', to: 'users#booking_request_decision', as: :booking_requests
+  post '/bookings/:id/accept', to: 'bookings#accept', as: 'booking_accept'
+  post '/bookings/:id/reject', to: 'bookings#reject', as: 'booking_reject'
 end
