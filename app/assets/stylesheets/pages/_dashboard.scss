@@ -1,0 +1,110 @@
+.dashboard-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;  // Adjust this as needed to add space below the header and button
+}
+
+.dashboard-header {
+  margin-bottom: 20px; // Adds space below the header
+  margin: 0;  // Reset the default margin of h2
+  flex-grow: 1;  // Allows the heading to take up the available space
+}
+
+.dashboard-container {
+  width: 80%; // set the width to 80% of the viewport
+  margin: 0 auto; // this will center the container
+}
+
+.dashboard-toggle-buttons {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.dashboard-boat-cards-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); // This will display 6 cards in a row.
+  grid-gap: 16px;
+  margin-bottom: 30px;
+}
+
+.dashboard-boat-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.dashboard-boat-card-image {
+  width: 100%;
+  height: 150px; // Reduced size
+  object-fit: cover;
+}
+
+.dashboard-boat-card-body {
+  padding: 12px; // Reduced padding
+}
+
+.dashboard-boat-card-title {
+  font-size: 16px; // Reduced font size
+  margin: 0;
+  padding: 0;
+}
+
+.create-boat-btn {
+  background-color: transparent;
+  border: 2px solid lightgray;
+  padding: 10px 20px;
+  color: #333;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  margin-left: 20px;  // Adds some space to the left of the button
+
+  &:hover {
+    background-color: rgba(0,0,0,0.05);
+  }
+}
+
+.booking-dates, .booking-location {
+  flex: 1;
+  padding: 0 20px;
+  font-size: 16px;
+}
+
+.booking-card {
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+}
+
+.booking-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px; /* You can adjust this value for spacing between items */
+}
+
+.open-requests-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: transparent;
+  border: 1px solid #3498db;
+  color: #3498db;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  text-decoration: none;
+  margin-left: 20px; /* To provide some spacing between the header and the button */
+}
+
+.open-requests-btn:hover {
+  background-color: #3498db;
+  color: #ffffff;
+}
