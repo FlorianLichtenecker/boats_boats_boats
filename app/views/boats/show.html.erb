@@ -36,8 +36,23 @@
     </div>
   <% end %>
 
-    <div class="leave-review">
-      <h2>Leave a Review</h2>
-      <%= render 'reviews/review', boat: @boat %>
+<div class="reviews-section">
+  <h2>Reviews</h2>
+  <% @boat.reviews.each do |review| %>
+    <div class="review">
+      <p><strong>Rating:</strong> <%= render_stars(review.rating) %></p>
+      <p><strong>Content:</strong> <%= review.content %></p>
+      <p><strong>Created by:</strong> <%= review.user.email %></p>
     </div>
+  <% end %>
+</div>
+
+    <div class="leave-review">
+    <h2>Leave a Review</h2>
+    <% if user_signed_in? %>
+      <%= render 'reviews/review', boat: @boat, user: current_user %>
+    <% else %>
+      <p>Please log in to leave a review.</p>
+    <% end %>
+  </div>
 </div>
