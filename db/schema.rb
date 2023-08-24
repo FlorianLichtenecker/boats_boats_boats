@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2023_08_24_102312) do
+=======
+ActiveRecord::Schema[7.0].define(version: 2023_08_24_091554) do
+>>>>>>> 8ea2ccacd324505856b5eb40f0f7d6790e14716b
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,6 +59,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_24_102312) do
     t.integer "capacity"
     t.integer "decks"
     t.boolean "crew_required"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_boats_on_user_id"
   end
 
