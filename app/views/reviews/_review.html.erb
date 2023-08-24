@@ -1,19 +1,10 @@
 <%= form_for([boat, Review.new], remote: true) do |f| %>
+  <div class="form-group rating-dropdown">
+  <%= f.select :rating, options_for_select((1..5).map { |num| [num, num] }), { prompt: 'Rating' }, class: 'form-dropdown' %>
+</div>
   <div class="form-group">
-    <%= f.label :rating %>
-    <div class="star-rating">
-      <% (1..5).each do |rating| %>
-        <label class="star-label">
-          <input type="radio" name="review[rating]" value="<%= rating %>" class="star-radio visually-hidden" />
-          <span class="star-icon"><i class="fas fa-star"></i></span>
-        </label>
-      <% end %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :content %>
-    <%= f.text_area :content %>
-  </div>
+  <%= f.text_area :content, placeholder: 'Your review content here...', class: 'form-control' %>
+</div>
   <div class="form-group">
     <%= f.submit 'Submit Review' %>
   </div>
