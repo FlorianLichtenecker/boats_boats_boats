@@ -1,0 +1,21 @@
+<!-- Open Booking Requests Section -->
+<div class="open-booking-requests-container">
+  <div class="dashboard-header-container">
+    <h2 class="dashboard-header">Your Open Booking Requests:</h2>
+  </div>
+  <% @bookings.each do |booking| %>
+    <div class="open-booking-card">
+      <div class="open-booking-info-container">
+        <span class="open-booking-info"><strong>Boat:</strong> <%= booking.boat.name %></span>
+        <span class="open-booking-info"><strong>Start Date:</strong> <%= booking.start_date %></span>
+        <span class="open-booking-info"><strong>End Date:</strong> <%= booking.end_date %></span>
+        <span class="open-booking-info"><strong>Nights:</strong> <%= (booking.end_date - booking.start_date).to_i %> nights</span>
+        <span class="open-booking-info"><strong>Location:</strong> <%= booking.boat.location %></span>
+      </div>
+      <div class="open-booking-buttons">
+        <%= button_to "Accept", booking_accept_path(booking), class: "accept-btn" %>
+        <%= button_to "Reject", booking_reject_path(booking), class: "reject-btn" %>
+      </div>
+    </div>
+  <% end %>
+</div>
