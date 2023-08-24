@@ -1,16 +1,61 @@
-<!-- app/views/users/dashboard.html.erb -->
-<h1>Welcome to Your Dashboard, <%= @user.email %></h1>
+<div class="dashboard-container">
+  <h1>Welcome to Your Dashboard, <%= @user.email %></h1>
 
-<h2>Your Boats:</h2>
-<% if @boats.any? %>
-  <ul>
-    <% @boats.each do |boat| %>
-      <li><%= boat.name %></li>
+  <!-- Toggle Buttons -->
+  <div class="dashboard-toggle-buttons">
+    <button id="lenderViewBtn" onclick="showLenderView()">Lender View</button>
+    <button id="borrowerViewBtn" onclick="showBorrowerView()">Borrower View</button>
+  </div>
+
+  <!-- Lender View -->
+  <div id="lenderView">
+  <div class="dashboard-header-container">
+    <h2 class="dashboard-header"><strong>Manage Your Boats</strong></h2>
+    <%= link_to "Create New Boat", new_boat_path, class: "create-boat-btn" %>
+  </div>
+  <div id="lenderView">
+    <% if @boats.any? %>
+      <div class="dashboard-boat-cards-container">
+        <% @boats.each do |boat| %>
+          <%= link_to boat_path(boat) do %>
+            <div class="dashboard-boat-card">
+              <% if boat.images.attached? && boat.images.first.present? %>
+                <%= cl_image_tag(boat.images.first.key, width: 300, height: 200, crop: :fill, class: 'dashboard-boat-card-image') %>
+              <% end %>
+              <div class="dashboard-boat-card-body">
+                <h3 class="dashboard-boat-card-title"><%= boat.name %></h3>
+                <!-- You can add more boat details here if you want -->
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <p>You have no boats.</p>
     <% end %>
-    <li><%= link_to "Create new listing", new_boat_path, style: "text-decoration:none" %></li>
-  </ul>
-<% else %>
-  <p>You have no boats.</p>
-<% end %>
+  </div>
 
-<h2>Your Booking Requests:</h2>
+    <div class="dashboard-header-container">
+      <h2 class="dashboard-header">Your Accepted Bookings:</h2>
+      <%= link_to "Open Requests (#{@open_requests_count})", "#", class: "open-requests-btn" %>
+    </div>
+    <% @bookings.select { |booking| booking.status == "accepted" }.each do |booking| %>
+      <div class="booking-card">
+        <div class="booking-info">
+          <span class="booking-boat-name"><strong>Boat:</strong> <%= booking.boat.name %></span>
+          <span class="booking-dates">
+            <strong>Start Date:</strong> <%= booking.start_date %> -
+            <strong>End Date:</strong> <%= booking.end_date %>
+          </span>
+          <span class="booking-nights">
+            <strong>Nights:</strong> <%= (booking.end_date - booking.start_date).to_i %> nights
+          </span>
+          <span class="booking-location">
+            <strong>Location:</strong> <%= booking.boat.location %>
+          </span>
+        </div>
+        <!-- Add any additional information or action buttons here -->
+      </div>
+    <% end %>
+</div>
+</div>
