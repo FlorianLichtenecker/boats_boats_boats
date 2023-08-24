@@ -9,7 +9,6 @@ class BookingsController < ApplicationController
       flash[:notice] = 'Booking request sent'
       redirect_to boat_path(@booking.boat)
     else
-      # Handle the error
       render 'boats/show'
     end
   end
