@@ -3,7 +3,7 @@
   <%= f.select :rating, options_for_select((1..5).map { |num| [num, num] }), { prompt: 'Rating' }, class: 'form-dropdown' %>
 </div>
   <div class="form-group">
-  <%= f.text_area :content, placeholder: 'Your review content here...', class: 'form-control' %>
+  <%= f.text_area :content, placeholder: 'Your review content here...', class: 'form-description' %>
 </div>
   <div class="form-group">
     <%= f.submit 'Submit Review' %>
