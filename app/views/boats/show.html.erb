@@ -38,21 +38,42 @@
 
 <div class="reviews-section">
   <h2>Reviews</h2>
-  <% @boat.reviews.each do |review| %>
-    <div class="review">
-      <p><strong>Rating:</strong> <%= render_stars(review.rating) %></p>
-      <p><strong>Content:</strong> <%= review.content %></p>
-      <p><strong>Created by:</strong> <%= review.user.email %></p>
-    </div>
-  <% end %>
-</div>
-
-    <div class="leave-review">
-    <h2>Leave a Review</h2>
-    <% if user_signed_in? %>
-      <%= render 'reviews/review', boat: @boat, user: current_user %>
-    <% else %>
-      <p>Please log in to leave a review.</p>
+  <div class="row">
+    <% @boat.reviews.each do |review| %>
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title"><strong>Rating:</strong> <%= render_stars(review.rating) %></h5>
+            <p class="card-text"><strong>Content:</strong> <%= review.content %></p>
+            <p class="card-text"><strong>Created by:</strong> <%= review.user.email %></p>
+          </div>
+        </div>
+      </div>
     <% end %>
   </div>
+</div>
+
+
+   <div class="leave-review">
+  <h2>Leave a Review</h2>
+  <% if user_signed_in? %>
+    <% user_booking_for_this_boat = current_user.bookings.find_by(boat_id: @boat.id) %>
+    <% if user_booking_for_this_boat %>
+
+      <% if @review.errors.any? %>
+  <div class="alert alert-danger">
+    <% @review.errors.full_messages.each do |msg| %>
+      <p><%= msg %></p>
+    <% end %>
+  </div>
+<% end %>
+
+
+      <%= render 'reviews/review', boat: @boat, user: current_user %>
+    <% else %>
+      <p>You can only leave a review for boats you have booked.</p>
+    <% end %>
+  <% else %>
+    <p>Please log in to leave a review.</p>
+  <% end %>
 </div>
