@@ -1,5 +1,6 @@
 <div class="boat-details">
   <h1><%= @boat.name %></h1>
+  <h4><%= @boat.location %></h4>
 
   <% if @boat.images.attached? %>
     <div class="boat-images">
@@ -23,6 +24,11 @@
 </div>
   <div class="boat-description">
     <h2>Specs</h2>
+    <p>
+    Capacity: <%= @boat.capacity %> people<br>
+    Decks: <%= @boat.decks %><br>
+    Crew Required: <%= @boat.crew_required %> members<br>
+    </p>
     <p>
       Length: <%= @boat.length %> meters<br>
       Width: <%= @boat.width %> meters<br>
