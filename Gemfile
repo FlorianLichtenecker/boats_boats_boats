@@ -86,3 +86,5 @@ gem 'cloudinary'
 
 gem 'image_processing'
 gem 'mini_magick'
+
+gem "geocoder"
