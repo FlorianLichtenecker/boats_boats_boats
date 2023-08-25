@@ -4,6 +4,14 @@
   grid-gap: 16px;
 }
 
+.image-card {
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
 .boat-details {
   padding: 20px;
   background-color: #f7f7f7;
@@ -16,8 +24,9 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 20px;
-  padding-right: 35px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+
 
   .boat-image {
     max-width: 55%;
@@ -26,29 +35,30 @@
   }
 
   .booking-card {
-    max-width: 40%;
+    width: 25%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 7px;
     background-color: #f7f7f7;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-    margin-right: 75px;
+    margin-right: 50px;
+    margin-left: 50px;
   }
 }
 
-.button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #3498db;
-  color: #ffffff;
+input[type="submit"] {
+  background-color: #4cc7e3;
+  color: white;
   border: none;
+  padding: 10px 20px;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
 }
 
-.button:hover {
+
+input[type="submit"]:hover {
   background-color: #2980b9;
 }
 
@@ -77,9 +87,11 @@
 }
 
 .reviews-section {
-  margin-top: 30px;
-  border-top: 1px solid #ccc;
-  padding-top: 20px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
 }
 
 .review {
@@ -87,7 +99,51 @@
 }
 
 .leave-review {
-  margin-top: 30px;
-  border-top: 1px solid #ccc;
-  padding-top: 20px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+
+.boat-description {
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.specs-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.specs-column {
+  flex-basis: calc(50% - 20px); /* Adjust the width as needed */
+}
+
+.specs-card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.specs-card i {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.specs-card p {
+  margin: 0;
 }

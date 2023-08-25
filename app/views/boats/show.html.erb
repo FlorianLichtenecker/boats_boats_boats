@@ -1,46 +1,64 @@
 <div class="boat-details">
-  <h1><%= @boat.name %></h1>
-  <h4><%= @boat.location %></h4>
+  <div class= "image-card">
+    <h1><%= @boat.name %></h1>
+    <h4><%= @boat.location %></h4>
 
-  <% if @boat.images.attached? %>
-    <div class="boat-images">
-      <% @boat.images.each do |image| %>
-        <%= cl_image_tag image.key, class: "boat-image" %>
-      <% end %>
+    <% if @boat.images.attached? %>
+      <div class="boat-images">
+        <% @boat.images.each do |image| %>
+          <%= cl_image_tag image.key, class: "boat-image" %>
+        <% end %>
 
-  <% else %>
-    <p>No images attached.</p>
-  <% end %>
+    <% else %>
+      <p>No images attached.</p>
+    <% end %>
 
-<div class="booking-card">
-      <h3>Book this Boat!</h3>
-      <%= render "bookings/calendar"%>
-      <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>">
-          <%= message %>
-        </div>
-      <% end %>
-</div>
-</div>
-  <div class="boat-description">
-    <h2>Specs</h2>
-    <p>
-    Capacity: <%= @boat.capacity %> people<br>
-    Decks: <%= @boat.decks %><br>
-    Crew Required: <%= @boat.crew_required %> members<br>
-    </p>
-    <p>
-      Length: <%= @boat.length %> meters<br>
-      Width: <%= @boat.width %> meters<br>
-      Height: <%= @boat.height %> meters
-    </p>
-  </div>
-
-   <% if @boat.user == current_user %>
-    <div class="boat-bookings">
-      <h2>Bookings</h2>
+  <div class="booking-card">
+  <h3 data-boat-price="<%= @boat.price %>"><%= @boat.price %> € per day</h3>
+  <%= render "bookings/calendar"%>
+  <% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>">
+      <%= message %>
     </div>
   <% end %>
+</div>
+</div>
+</div>
+
+  <div class="boat-description">
+    <h2>Specs</h2>
+    <div class="specs-container">
+      <div class="specs-column">
+        <div class="specs-card">
+          <i class="fas fa-users"></i>
+          <p>Capacity: <%= @boat.capacity %> people</p>
+        </div>
+        <div class="specs-card">
+          <i class="fas fa-ship"></i>
+          <p>Decks: <%= @boat.decks %></p>
+        </div>
+        <div class="specs-card">
+          <i class="fas fa-user-friends"></i>
+          <p>Crew Required: <%= @boat.crew_required %></p>
+        </div>
+      </div>
+      <div class="specs-column">
+        <div class="specs-card">
+          <i class="fas fa-ruler-horizontal"></i>
+          <p>Length: <%= @boat.length %> meters</p>
+        </div>
+        <div class="specs-card">
+          <i class="fas fa-ruler-vertical"></i>
+          <p>Width: <%= @boat.width %> meters</p>
+        </div>
+        <div class="specs-card">
+          <i class="fas fa-ruler-vertical"></i>
+          <p>Height: <%= @boat.height %> meters</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 <div class="reviews-section">
   <h2>Reviews</h2>
