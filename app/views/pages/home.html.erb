@@ -1,7 +1,12 @@
 <div class="banner" style="background-image: url(<%= asset_path("pexels-pirateship.jpg") %>);">
   <div class="container">
-    <h1>Boats ! Boats ! Boats ! </h1>
-    <p>Select your dream boat from our large collection. <br> Connect to +2500 boats for your every needs</p>
-    <a class="btn btn-flat" href="#">Register</a>
+    <h1 class="banner-heading">Boats ! Boats ! Boats !</h1>
+    <p class="banner-subtext">Select your dream boat from our large collection. <br> Connect to +2500 boats for your every needs</p>
+    <% if !user_signed_in? %>
+      <a class="btn btn-flat btn-register" href="<%= new_user_registration_path %>">Register</a>
+    <% end %>
+    <% if user_signed_in? %>
+      <a class="btn btn-flat btn-view-boats" href="<%= boats_path %>">View Boats</a>
+    <% end %>
   </div>
 </div>
