@@ -1,5 +1,5 @@
 class BoatsController < ApplicationController
-  before_action :set_boat, only: %i[show edit destroy]
+  before_action :set_boat, only: %i[show edit update destroy]
 
   def index
     @boats = Boat.all
@@ -38,7 +38,7 @@ class BoatsController < ApplicationController
 
   def destroy
     @boat.destroy
-    redirect_to boats_path, notice: 'Listing was successfully destroyed.'
+    redirect_to user_dashboard_path, notice: 'Listing was successfully destroyed.'
   end
 
   private
