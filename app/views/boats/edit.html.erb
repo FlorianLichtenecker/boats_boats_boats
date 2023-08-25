@@ -1,0 +1,25 @@
+<div class="boat-form-container">
+    <h1 class="boat-form-header">New Boat <i class="fas fa-ship"></i></h1>
+    <%= simple_form_for @boat do |f| %>
+      <%= f.input :name, label: 'Name', input_html: { class: "boat-form-input" } %>
+      <%= f.input :length, label: 'Length (in m)', input_html: { class: "boat-form-input" } %>
+      <%= f.input :width, label: 'Width (in m)', input_html: { class: "boat-form-input" } %>
+      <%= f.input :height, label: 'Height (in m)', input_html: { class: "boat-form-input" } %>
+      <%= f.input :price, label: 'Price per day (in €)', input_html: { class: "boat-form-input" } %>
+      <%= f.input :capacity, label: 'Capacity (people)', input_html: { class: "boat-form-input" } %>
+      <%= f.input :decks, label: 'Decks (#)', input_html: { class: "boat-form-input" } %>
+      <%= f.input :crew_required, label: 'Crew Required', as: :boolean, input_html: { class: "boat-form-input" } %>
+      <%= f.input :location,
+        input_html: {data: {address_autocomplete_target: "location"}, class: "boat-form-input d-none"},
+        wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+      %>
+      <%= f.input :images, as: :file, input_html: { multiple: true, class: "boat-form-input" } %>
+
+      <div class="boat-form-actions">
+        <%= f.button :submit, class: "boat-form-submit-btn" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to 'Back', user_dashboard_path %>

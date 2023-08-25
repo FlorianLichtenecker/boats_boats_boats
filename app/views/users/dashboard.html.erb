@@ -7,37 +7,46 @@
     <button id="borrowerViewBtn" onclick="showBorrowerView()">Borrower View</button>
   </div>
 
-  <!-- Lender View -->
-  <div id="lenderView">
+<!-- Lender View -->
+<div id="lenderView">
   <div class="dashboard-header-container">
     <h2 class="dashboard-header"><strong>Manage Your Boats</strong></h2>
     <%= link_to "Create New Boat", new_boat_path, class: "create-boat-btn" %>
   </div>
-  <div id="lenderView">
-    <% if @boats.any? %>
-      <div class="dashboard-boat-cards-container">
-        <% @boats.each do |boat| %>
+
+  <% if @boats.any? %>
+    <div class="dashboard-boat-cards-container">
+      <% @boats.each do |boat| %>
+        <div class="dashboard-boat-card">
           <%= link_to boat_path(boat) do %>
-            <div class="dashboard-boat-card">
-              <% if boat.images.attached? && boat.images.first.present? %>
-                <%= cl_image_tag(boat.images.first.key, width: 300, height: 200, crop: :fill, class: 'dashboard-boat-card-image') %>
-              <% end %>
-              <div class="dashboard-boat-card-body">
-                <h3 class="dashboard-boat-card-title"><%= boat.name %></h3>
-                <!-- You can add more boat details here if you want -->
-              </div>
+            <% if boat.images.attached? && boat.images.first.present? %>
+              <%= cl_image_tag(boat.images.first.key, width: 300, height: 200, crop: :fill, class: 'dashboard-boat-card-image') %>
+            <% end %>
+            <div class="dashboard-boat-card-body">
+              <h3 class="dashboard-boat-card-title">
+                <%= boat.name %>
+                <div class="dashboard-boat-card-actions-container">
+                  <%= link_to edit_boat_path(boat) do %>
+                    <i class="fas fa-edit dashboard-edit-boat-icon" title="Edit Boat"></i>
+                  <% end %>
+                  <%= button_to boat_path(boat), method: :delete, data: { confirm: 'Are you sure you want to delete this boat?' }, class: "dashboard-delete-boat-btn" do %>
+                    <i class="fas fa-trash dashboard-delete-boat-icon" title="Delete Boat"></i>
+                  <% end %>
+                </div>
+              </h3>
             </div>
           <% end %>
-        <% end %>
-      </div>
-    <% else %>
-      <p>You have no boats.</p>
-    <% end %>
-  </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p>You have no boats.</p>
+  <% end %>
+</div>
 
     <div class="dashboard-header-container">
       <h2 class="dashboard-header">Your Accepted Bookings:</h2>
-      <%= link_to "Open Requests (#{@open_requests_count})", booking_requests_path, class: "open-requests-btn" %>
+      <%= link_to "Open Requests (#{@open_requests_count})", "#", class: "open-requests-btn" %>
     </div>
     <% @bookings.select { |booking| booking.status == "accepted" }.each do |booking| %>
       <div class="booking-card">
